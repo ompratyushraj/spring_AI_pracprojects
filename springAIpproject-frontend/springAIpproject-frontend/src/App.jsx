@@ -1,47 +1,76 @@
-
-import React, { useState } from 'react';
-import './App.css';
-import ImageGenerator from './component/ImageGenerator';
-import ChatComponent from './component/ChatComponent';
-import RecipeGenerator from './component/RecipeGenerator';
+import React, { useState } from "react";
+import {
+  AppBar,
+  Tabs,
+  Tab,
+  Container,
+  Box,
+  CssBaseline,
+  ThemeProvider,
+  createTheme,
+  Paper,
+} from "@mui/material";
+import ImageGenerator from "./component/ImageGenerator";
+import ChatComponent from "./component/ChatComponent";
+import RecipeGenerator from "./component/RecipeGenerator";
 
 function App() {
-  const [activeTab, setActiveTab] = useState('image-generator');
+  const [activeTab, setActiveTab] = useState(0);
 
-  const handleTabChange = (tab) => {
-    setActiveTab(tab);
+  const handleTabChange = (event, newValue) => {
+    setActiveTab(newValue);
   };
 
+  // Enable Dark Mode Theme
+  const darkTheme = createTheme({
+    palette: {
+      mode: "dark",
+      primary: {
+        main: "#90caf9",
+      },
+      secondary: {
+        main: "#f48fb1",
+      },
+      background: {
+        default: "#121212",
+        paper: "#1e1e1e",
+      },
+    },
+    typography: {
+      fontFamily: "Roboto, sans-serif",
+    },
+  });
+
   return (
-    <>
-      <div>
-        <div className="App">
-          <button
-            className={activeTab === 'image-generator' ? 'active' : ''}
-            onClick={() => handleTabChange('image-generator')}
-          >
-            Image Generator
-          </button>
-          <button
-            className={activeTab === 'chat' ? 'active' : ''}
-            onClick={() => handleTabChange('chat')}
-          >
-            Chat Generator
-          </button>
-          <button
-            className={activeTab === 'recipe-generator' ? 'active' : ''}
-            onClick={() => handleTabChange('recipe-generator')}
-          >
-            Recipe Generator
-          </button>
-          <div>
-            {activeTab === 'image-generator' && <ImageGenerator/>}
-            {activeTab === 'chat' && <ChatComponent/>}
-            {activeTab === 'recipe-generator' && <RecipeGenerator/>}
-          </div>
-        </div>
-      </div>
-    </>
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+
+      {/* Navigation Bar */}
+      <AppBar position="static" color="primary">
+        <Tabs
+          value={activeTab}
+          onChange={handleTabChange}
+          textColor="inherit"
+          indicatorColor="secondary"
+          centered
+        >
+          <Tab label="Chat Generator" />
+          <Tab label="Recipe Generator" />
+          <Tab label="Image Generator" />
+        </Tabs>
+      </AppBar>
+
+      {/* Main Content */}
+      <Container maxWidth="md" sx={{ mt: 4 }}>
+        <Paper elevation={4} sx={{ p: 3, borderRadius: 3 }}>
+          <Box>
+            {activeTab === 1 && <RecipeGenerator />}
+            {activeTab === 2 && <ImageGenerator />}
+            {activeTab === 0 && <ChatComponent />}
+          </Box>
+        </Paper>
+      </Container>
+    </ThemeProvider>
   );
 }
 
