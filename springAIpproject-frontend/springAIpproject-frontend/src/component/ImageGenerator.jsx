@@ -56,7 +56,7 @@ function ImageGenerator() {
         />
         <Button
           variant="contained"
-          color="secondary"
+          color="primary"
           onClick={generateImage}
           sx={{
             borderRadius: "50px",

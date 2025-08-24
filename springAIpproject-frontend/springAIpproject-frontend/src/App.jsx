@@ -13,6 +13,7 @@ import {
 import ImageGenerator from "./component/ImageGenerator";
 import ChatComponent from "./component/ChatComponent";
 import RecipeGenerator from "./component/RecipeGenerator";
+import AudioComponent from "./component/AudioComponent";
 
 function App() {
   const [activeTab, setActiveTab] = useState(0);
@@ -51,11 +52,12 @@ function App() {
           value={activeTab}
           onChange={handleTabChange}
           textColor="inherit"
-          indicatorColor="secondary"
+          indicatorColor="primary"
           centered
         >
           <Tab label="Chat Generator" />
           <Tab label="Recipe Generator" />
+          <Tab label="Audio Transcriber" />
           <Tab label="Image Generator" />
         </Tabs>
       </AppBar>
@@ -65,8 +67,9 @@ function App() {
         <Paper elevation={4} sx={{ p: 3, borderRadius: 3 }}>
           <Box>
             {activeTab === 1 && <RecipeGenerator />}
-            {activeTab === 2 && <ImageGenerator />}
+            {activeTab === 3 && <ImageGenerator />}
             {activeTab === 0 && <ChatComponent />}
+            {activeTab === 2 && <AudioComponent />}
           </Box>
         </Paper>
       </Container>

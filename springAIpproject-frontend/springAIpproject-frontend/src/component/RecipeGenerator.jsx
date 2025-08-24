@@ -82,8 +82,8 @@ function RecipeGenerator() {
           <Grid item xs={10} md={6}>
             <Button
               type="submit" // now Enter key works
-              variant="outlined"
-              color="secondary"
+              variant="contained"
+              color="primary"
               fullWidth
               sx={{
                 borderRadius: "50px",

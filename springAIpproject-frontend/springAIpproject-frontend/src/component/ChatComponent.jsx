@@ -66,7 +66,7 @@ function ChatComponent() {
 
       <Button
         variant="contained"
-        color="secondary"
+        color="primary"
         onClick={askAI}
         sx={{
           borderRadius: "50px",

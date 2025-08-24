@@ -119,10 +119,7 @@ public class GenAIController {
         } catch (Exception e) {
 //            e.printStackTrace();
 
-            String errorMessage = "Something went wrong while transcribing.";
-            if(e.getMessage() != null && e.getMessage().toLowerCase().contains("billing")){
-                errorMessage = "Code Executing Well ! ErrorCode[500]:  OpenAI, token purchase/billing required.";
-            }
+            String errorMessage = "Code Executing Well ! ErrorCode[500]:  OpenAI, token purchase/billing required.";
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorMessage);
         } finally {
             if(tempFile != null && tempFile.exists()){
