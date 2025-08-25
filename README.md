@@ -114,6 +114,7 @@ npm run dev
 * axios
 * @mui/material @mui/icons-material
 * tailwindcss (if used)
+* concurrency
 
 ---
 
