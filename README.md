@@ -134,8 +134,8 @@ npm run dev
 * **Recipe** → `"Failed to generate recipe. Invalid ingredients or server issue."`
 * **Audio** → `"Transcription failed. Ensure audio format and API key validity."`
 * **Image** → `"Image generation failed. Check tokens or prompt."`
-
-Errors are displayed as styled **MUI alerts in red boxes**.
+* **Editor Compatibility Note** →
+`"IntelliJ IDEA, being specifically optimized for Java development, seamlessly integrates and recognizes environment variables defined in a .env file. However, Visual Studio Code does not natively provide the same level of compatibility for Java-based projects. Therefore, it is recommended to configure your OpenAI API key directly within the application.properties file for smoother and more reliable project execution, rather than relying on the .env file. Error could prompt as : "Error in configuring API secret key of OpenAI""`
 
 ---
 
